@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace dotnet_store.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InıtıalCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +25,19 @@ namespace dotnet_store.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Urunler", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Urunler",
+                columns: new[] { "Id", "Aktif", "Fiyat", "UrunAdi" },
+                values: new object[,]
+                {
+                    { 1, false, 10000.0, "Apple Watch 7" },
+                    { 2, true, 20000.0, "Apple Watch 8" },
+                    { 3, true, 30000.0, "Apple Watch 9" },
+                    { 4, false, 40000.0, "Apple Watch 10" },
+                    { 5, true, 50000.0, "Apple Watch 11" },
+                    { 6, true, 60000.0, "Apple Watch 12" }
                 });
         }
 
