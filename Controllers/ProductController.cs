@@ -12,7 +12,11 @@ public class ProductController: Controller
     {
         _context = context;
     }
-    public ActionResult Index()
+        public ActionResult Index()
+    {
+        return View();
+    }
+    public ActionResult List()
     {
         // Sorguyu ilgili sql e çevrilmesi sağlanıyor
         var products = _context.Urunler.ToList();
