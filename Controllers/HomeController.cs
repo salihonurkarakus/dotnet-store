@@ -13,7 +13,7 @@ public class HomeController : Controller
     }
     public ActionResult Index()
     {
-        var products = _context.Urunler.ToList();
+        var products = _context.Urunler.Where(urun => urun.Aktif && urun.Anasayfa).ToList();
         return View(products);
     }
 }
