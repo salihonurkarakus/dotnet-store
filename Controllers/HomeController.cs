@@ -14,6 +14,7 @@ public class HomeController : Controller
     public ActionResult Index()
     {
         var products = _context.Urunler.Where(urun => urun.Aktif && urun.Anasayfa).ToList();
+        ViewData["Categories"] = _context.Categories.ToList();
         return View(products);
     }
 }

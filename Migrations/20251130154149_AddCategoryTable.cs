@@ -20,7 +20,7 @@ namespace dotnet_store.Migrations
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -30,11 +30,11 @@ namespace dotnet_store.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Category",
+                table: "Categories",
                 columns: new[] { "Id", "KategoriAdi", "Url" },
                 values: new object[,]
                 {
@@ -42,7 +42,12 @@ namespace dotnet_store.Migrations
                     { 2, "Elektronik", "elektronik" },
                     { 3, "Beyaz Eşya", "beyaz-esya" },
                     { 4, "Giyim", "giyim" },
-                    { 5, "Kozmetik", "kozmetik" }
+                    { 5, "Kozmetik", "kozmetik" },
+                    { 6, "Kategori1", "kategori1" },
+                    { 7, "Kategori2", "kategori2" },
+                    { 8, "Kategori3", "kategori3" },
+                    { 9, "Kategori4", "kategori4" },
+                    { 10, "Kategori5", "kategori5" }
                 });
 
             migrationBuilder.UpdateData(
@@ -107,10 +112,10 @@ namespace dotnet_store.Migrations
                 column: "CategoryId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Urunler_Category_CategoryId",
+                name: "FK_Urunler_Categories_CategoryId",
                 table: "Urunler",
                 column: "CategoryId",
-                principalTable: "Category",
+                principalTable: "Categories",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -119,11 +124,11 @@ namespace dotnet_store.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Urunler_Category_CategoryId",
+                name: "FK_Urunler_Categories_CategoryId",
                 table: "Urunler");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
 
             migrationBuilder.DropIndex(
                 name: "IX_Urunler_CategoryId",

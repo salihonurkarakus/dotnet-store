@@ -32,7 +32,7 @@ namespace dotnet_store.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -64,6 +64,36 @@ namespace dotnet_store.Migrations
                             Id = 5,
                             KategoriAdi = "Kozmetik",
                             Url = "kozmetik"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            KategoriAdi = "Kategori1",
+                            Url = "kategori1"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            KategoriAdi = "Kategori2",
+                            Url = "kategori2"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            KategoriAdi = "Kategori3",
+                            Url = "kategori3"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            KategoriAdi = "Kategori4",
+                            Url = "kategori4"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            KategoriAdi = "Kategori5",
+                            Url = "kategori5"
                         });
                 });
 

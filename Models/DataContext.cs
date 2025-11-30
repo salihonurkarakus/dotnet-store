@@ -10,6 +10,7 @@ public class DataContext : DbContext // DbContext sınıfının özelliklerini m
 
     }
     public DbSet<Product> Urunler { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -23,6 +24,11 @@ public class DataContext : DbContext // DbContext sınıfının özelliklerini m
                 new Category {Id=3,KategoriAdi="Beyaz Eşya",Url="beyaz-esya"},
                 new Category {Id=4,KategoriAdi="Giyim",Url="giyim"},
                 new Category {Id=5,KategoriAdi="Kozmetik",Url="kozmetik"},
+                new Category {Id=6,KategoriAdi="Kategori1",Url="kategori1"},
+                new Category {Id=7,KategoriAdi="Kategori2",Url="kategori2"},
+                new Category {Id=8,KategoriAdi="Kategori3",Url="kategori3"},
+                new Category {Id=9,KategoriAdi="Kategori4",Url="kategori4"},
+                new Category {Id=10,KategoriAdi="Kategori5",Url="kategori5"},
             }
 
         );
