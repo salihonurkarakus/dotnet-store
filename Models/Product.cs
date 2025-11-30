@@ -8,5 +8,7 @@ public class Product
     public string? Aciklama { get; set; }
     public bool Aktif { get; set; }
     public bool Anasayfa { get; set; }
+    public int CategoryId { get; set; }
+    public Category Category { get; set; } = null!;
 
 }
