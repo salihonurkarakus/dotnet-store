@@ -1,8 +1,9 @@
+@using Microsoft.AspNetCore.Http.Features
 @model List<Category>
 <nav class="nav nav-pills flex-column flex-nowrap overflow-auto slider_nav">
-    @foreach (var category in Model)
+    @foreach (Category category in Model)
     {
-            <a href="#" class="nav-link">@category.KategoriAdi</a>
+            <a href="/urunler/@category.Url" class="nav-link">@category.KategoriAdi</a>
 
     }
 </nav>

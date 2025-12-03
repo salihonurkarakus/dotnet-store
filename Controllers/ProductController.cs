@@ -16,10 +16,10 @@ public class ProductController : Controller
     {
         return View();
     }
-    public ActionResult List()
+    public ActionResult List(string url)
     {
         // Sorguyu ilgili sql e çevrilmesi sağlanıyor
-        var products = _context.Urunler.Where(i => i.Aktif).ToList();
+        var products = _context.Urunler.Where(i => i.Aktif && i.Category.Url==url).ToList();
         ;
         return View(products);
     }
@@ -28,13 +28,11 @@ public class ProductController : Controller
     {
         var urun = _context.Urunler.Find(id);
 
-        // EĞER ÜRÜN BULUNAMAZSA:
         if (urun == null)
         {
-            // Kullanıcıya "Bulunamadı" hatası (404) dönüyoruz.
-            // Böylece uygulama çökmüyor, tarayıcıda düzgün bir hata sayfası çıkıyor.
-            return NotFound();
+            return RedirectToAction("Index","Home");
         }
+        ViewData["BenzerUrunler"] = _context.Urunler.Where(i => i.Aktif && i.CategoryId == urun.CategoryId && i.Id != id).Take(4).ToList();
 
         return View(urun);
     }
